@@ -201,7 +201,7 @@ export default class SinglyLinkedList {
         let newNode = this._createNode(data);
 
         // if the target is the head
-        if (targetNode === this.head) {
+        if (targetNode == this.head) {
             newNode.next = this.head;
             this.head = newNode;
         } else {

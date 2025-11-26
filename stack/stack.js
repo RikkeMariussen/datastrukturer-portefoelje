@@ -2,7 +2,6 @@
 export default class Stack {
     constructor() {
         this.head = null;
-        this.tail = null;
         this.length = 0;
     }
 
@@ -36,11 +35,10 @@ export default class Stack {
         //Checking if the queue has a head - or it will be set as the head
         if( !this.head ) {
             this.head = newNode;
-            this.tail = newNode;
         } else {
-            //Linking the new tail with the code
-            this.tail.next = newNode;
-            this.tail = newNode;
+            //Linking the new head with the code
+            newNode.next = this.head;
+            this.head = newNode;
         } 
         this.length++;
     }
@@ -64,7 +62,7 @@ export default class Stack {
         let current = this.head;
         let i = 0;
         while(i<index){
-            current.next;
+            current = current.next;
             i++;
         }
         return current.data;
@@ -72,10 +70,6 @@ export default class Stack {
 
     size() {
         return this.length;
-    }
-
-    clear() {
-        this.head = null; 
     }
 
     getNode( index ) {
@@ -94,10 +88,7 @@ export default class Stack {
         }
         return current;
     }
-    
-    getLastNode() {
-        return this.tail;
-    }
+
 
     getNextNode( node ) {
         //Returns next node or null, if there is a node.next, it returns that, otherwise it returns null
@@ -124,9 +115,9 @@ export default class Stack {
     s.push("B");
     s.push("C");
 
-    console.log(q.peek());
-    console.log(q.size());
-    console.log(q.get(1));
-    console.log(q.pop());
-    console.log(q.peek());
-    console.log(q.size());
+    console.log(s.peek());
+    console.log(s.size());
+    console.log(s.get(2));
+    console.log(s.pop());
+    console.log(s.peek());
+    console.log(s.size());
